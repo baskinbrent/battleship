@@ -1,0 +1,8 @@
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\bin\Debug\Battleship.exe.config
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.Battleship.resources
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.Cache
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\bin\Debug\Battleship.exe
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\bin\Debug\Battleship.pdb
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.exe
+c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.pdb
