@@ -6,3 +6,6 @@ c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\bi
 c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\bin\Debug\Battleship.pdb
 c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.exe
 c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\obj\Debug\Battleship.pdb
+G:\CIS3309\Battleship\battleship\Battleship\bin\Debug\Battleship.exe.config
+G:\CIS3309\Battleship\battleship\Battleship\obj\Debug\Battleship.exe
+G:\CIS3309\Battleship\battleship\Battleship\obj\Debug\Battleship.pdb
