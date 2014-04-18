@@ -9,3 +9,13 @@ c:\users\tuc51727\documents\visual studio 2012\Projects\Battleship\Battleship\ob
 G:\CIS3309\Battleship\battleship\Battleship\bin\Debug\Battleship.exe.config
 G:\CIS3309\Battleship\battleship\Battleship\obj\Debug\Battleship.exe
 G:\CIS3309\Battleship\battleship\Battleship\obj\Debug\Battleship.pdb
+G:\CIS3309\battleship\Battleship\bin\Debug\Battleship.exe.config
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.exe
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.pdb
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.Battleship.resources
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.BoardControl.resources
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.Cache
+G:\CIS3309\battleship\Battleship\bin\Debug\Battleship.exe
+G:\CIS3309\battleship\Battleship\bin\Debug\Battleship.pdb
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.csprojResolveAssemblyReference.cache

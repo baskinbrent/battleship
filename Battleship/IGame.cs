@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    enum Player
+    public enum Player
     {
         Human,
         Computer
     }
 
-    interface IGame
+    public interface IGame
     {
         //get 2 boards
         IBoard[] Boards { get; }

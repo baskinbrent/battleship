@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    interface IShip
+    public interface IShip
     {
         //how big the boat is
         int Size { get; }
