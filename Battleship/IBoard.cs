@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    enum Cell : int
+    public enum Cell : int
     {
         Water = 0,
         Ship = 1,
@@ -14,13 +14,13 @@ namespace Battleship
         Miss = 3
     }
 
-    enum Orientation
+    public enum Orientation
     {
         Horizontal,
         Vertical
     }
 
-    interface IBoard
+    public interface IBoard
     {
         //the number of rows the board has
         int Rows { get; }
