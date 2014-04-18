@@ -20,26 +20,44 @@ namespace Battleship
         public bool IsPlayer { get; set; }
         public IBoard Board { get; set; }
         private int x, y;
-
-        private void BoardControl_Click(object sender, EventArgs e)
-        {
-            Redraw(true);
-        }
+        private Orientation orientation;
 
         private void picView_MouseMove(object sender, MouseEventArgs e)
         {
             x = e.X;
             y = e.Y;
-            Redraw(false);
+            Redraw(null);
         }
 
-        public void Redraw(bool click)
+        private void picView_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Board.ShipsLeftToPlace.Length == 0)
+            Redraw(e.Button);
+        }
+
+        public void Redraw(MouseButtons? click)
+        {
+            if (Board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
             {
+                if (IsPlayer) //show ships only
+                {
+
+                }
+                else //show markers only
+                {
+                }
             }
-            else
+            else //not all of the ships have been placed
             {
+                if (IsPlayer) //show the ship to be placed
+                {
+                    if (click == MouseButtons.Right) //change orientation 
+                    {
+                        orientation = orientation == Orientation.Horizontal ? Orientation.Vertical : Orientation.Horizontal;
+                    }
+                    else if (click == MouseButtons.Left) //place boat
+                    {
+                    }
+                }
             }
         }
     }

@@ -39,6 +39,7 @@
             this.picView.Size = new System.Drawing.Size(200, 200);
             this.picView.TabIndex = 0;
             this.picView.TabStop = false;
+            this.picView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picView_MouseClick);
             this.picView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picView_MouseMove);
             // 
             // BoardControl
@@ -49,7 +50,6 @@
             this.Controls.Add(this.picView);
             this.Name = "BoardControl";
             this.Size = new System.Drawing.Size(200, 200);
-            this.Click += new System.EventHandler(this.BoardControl_Click);
             ((System.ComponentModel.ISupportInitialize)(this.picView)).EndInit();
             this.ResumeLayout(false);
 

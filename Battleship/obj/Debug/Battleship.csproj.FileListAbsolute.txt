@@ -18,3 +18,4 @@ G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resou
 G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.Cache
 G:\CIS3309\battleship\Battleship\bin\Debug\Battleship.exe
 G:\CIS3309\battleship\Battleship\bin\Debug\Battleship.pdb
+G:\CIS3309\battleship\Battleship\obj\Debug\Battleship.csprojResolveAssemblyReference.cache
