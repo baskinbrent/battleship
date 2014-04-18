@@ -22,5 +22,7 @@ namespace Battleship
         bool Fire(int row, int column);
         //restarts the boards
         void NewGame();
+        bool IsOver { get; }
+        void Reset();
     }
 }

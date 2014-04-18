@@ -39,8 +39,11 @@ namespace Battleship
         //where you attacked
         Cell[] Cells { get; }
         //restarts the game (should be called in the constructor)
-        void NewGame();
+        void Reset();
         //peek at the real board
         Cell[] Test { get; }
+        //checks if game is over
+        bool IsOver { get; }
+       
     }
 }
