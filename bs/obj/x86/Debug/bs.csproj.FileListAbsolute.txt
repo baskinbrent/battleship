@@ -6,3 +6,5 @@ G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.Properties.Resources.resources
 G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
 G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.exe
 G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.pdb
+G:\CIS3309\battleship\bs\obj\x86\Debug\bs.exe
+G:\CIS3309\battleship\bs\obj\x86\Debug\bs.pdb
