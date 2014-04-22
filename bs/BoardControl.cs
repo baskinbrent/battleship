@@ -12,15 +12,19 @@ namespace Battleship
 {
     public partial class BoardControl : UserControl
     {
-        public BoardControl()
-        {
-            InitializeComponent();
-        }
 
-        public bool IsPlayer { get; set; }
+        public Player Player { get; set; }
         public IBoard Board { get; set; }
         private int x, y;
         private Orientation orientation;
+        private Bitmap water;
+
+        public BoardControl()
+        {
+            InitializeComponent();
+            water = new Bitmap("images/water.jpg");
+            Redraw();
+        }
 
         private void picView_MouseMove(object sender, MouseEventArgs e)
         {
@@ -37,19 +41,30 @@ namespace Battleship
         public void Redraw(MouseButtons? click)
         {
             //CLICK
+            Graphics g = picView.CreateGraphics();
+            int width = picView.Width / Board.Columns,
+                height = picView.Height / Board.Rows;
+            for (int i = 0; i < Board.Columns; i++)
+            {
+                for (int j = 0; j < Board.Rows; j++)
+                {
+                    g.DrawImage(water, new Rectangle(i * width, j * height, width, height));
+                }
+            }
             if (Board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
             {
-                if (IsPlayer) //show ships and markers
+                if (Player == Player.Human) //show ships and markers
                 {
 
                 }
                 else //show markers only
                 {
+
                 }
             } //MOVE
             else //not all of the ships have been placed
             {
-                if (IsPlayer) //show the ship to be placed
+                if (Player == Player.Human) //show the ship to be placed
                 {
                     if (click == MouseButtons.Right) //change orientation 
                     {
@@ -57,7 +72,7 @@ namespace Battleship
                     }
                     else if (click == MouseButtons.Left) //place boat
                     {
-                        Board.Place(Board.ShipsLeftToPlace[0], x / (picView.Width / 10), y / (picView.Height / 10), orientation); 
+                        Board.Place(Board.ShipsLeftToPlace[0], x / (picView.Width / Board.Columns), y / (picView.Height / Board.Rows), orientation);
                     }
                 }
             }
