@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.gameViewer = new bs.GameControl();
+            this.SuspendLayout();
+            // 
+            // gameViewer
+            // 
+            this.gameViewer.Game = null;
+            this.gameViewer.Location = new System.Drawing.Point(13, 13);
+            this.gameViewer.Name = "gameViewer";
+            this.gameViewer.Size = new System.Drawing.Size(210, 418);
+            this.gameViewer.TabIndex = 0;
+            // 
+            // Battleship
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(234, 432);
+            this.Controls.Add(this.gameViewer);
+            this.Name = "Battleship";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private bs.GameControl gameViewer;
     }
 }
 

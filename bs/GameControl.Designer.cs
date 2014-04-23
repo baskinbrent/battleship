@@ -1,4 +1,5 @@
-﻿namespace bs
+﻿using Battleship;
+namespace bs
 {
     partial class GameControl
     {
@@ -36,7 +37,7 @@
             // 
             this.brdComputer.BackColor = System.Drawing.Color.Black;
             this.brdComputer.Board = null;
-            this.brdComputer.IsPlayer = false;
+            this.brdComputer.Player = Player.Computer;
             this.brdComputer.Location = new System.Drawing.Point(4, 4);
             this.brdComputer.Name = "brdComputer";
             this.brdComputer.Size = new System.Drawing.Size(200, 200);
@@ -46,7 +47,7 @@
             // 
             this.brdPlayer.BackColor = System.Drawing.Color.Black;
             this.brdPlayer.Board = null;
-            this.brdPlayer.IsPlayer = false;
+            this.brdPlayer.Player = Player.Human;
             this.brdPlayer.Location = new System.Drawing.Point(4, 211);
             this.brdPlayer.Name = "brdPlayer";
             this.brdPlayer.Size = new System.Drawing.Size(200, 200);

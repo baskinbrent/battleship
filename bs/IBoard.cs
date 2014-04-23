@@ -38,9 +38,11 @@ namespace Battleship
         //get the contents of all the game cells
         Cell[,] Cells { get; }
         //restarts the game (should be called in the constructor)
-        void Reset();
+        void NewGame();
         //checks if game is over
         bool IsOver { get; }
+        //determines if a boat fits without placing it
+        bool ShipFits(IShip ship, int row, int column, Orientation orientation);
        
     }
 }

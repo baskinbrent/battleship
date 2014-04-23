@@ -8,3 +8,12 @@ G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.exe
 G:\CIS3309\bs\bs\bs\obj\x86\Debug\bs.pdb
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.exe
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.pdb
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.exe
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.pdb
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\Battleship.Battleship.resources
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\Battleship.BoardControl.resources
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.GameControl.resources
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\bin\Debug\bs.exe
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\bin\Debug\bs.pdb

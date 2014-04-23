@@ -16,7 +16,7 @@ namespace Battleship
 
         public Board()
         {
-            Reset();
+            NewGame();
         }
 
         public int Rows
@@ -67,11 +67,11 @@ namespace Battleship
 
         }
 
-        private bool ShipFits(IShip ship, int row, int column, Orientation orientation)
+        public bool ShipFits(IShip ship, int row, int column, Orientation orientation)
         {
             if (orientation == Orientation.Vertical)
             {
-                if (row + ship.Size >= Rows)
+                if (row + ship.Size > Rows)
                 {
                     return false;
                 }
@@ -85,27 +85,23 @@ namespace Battleship
 
                 }
             }
-            if (ShipFits(ship, row, column, orientation))
+            if (orientation == Orientation.Horizontal)
             {
-                if (orientation == Orientation.Horizontal)
-                {
 
-                    if (column + ship.Size >= Columns)
+                if (column + ship.Size > Columns)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < ship.Size; i++)
+                {
+                    if (cells[row, column + i] == Cell.Ship)
                     {
                         return false;
                     }
 
-                    for (int i = 0; i < ship.Size; i++)
-                    {
-                        if (cells[row, column + i] == Cell.Ship)
-                        {
-                            return false;
-                        }
-
-                    }
                 }
             }
-
             return true;
         }
 
@@ -143,7 +139,7 @@ namespace Battleship
             }
         }
 
-        public void Reset()
+        public void NewGame()
         {
             ships = new List<IShip>(new IShip[] {
                 new Ship() { Size = 5},

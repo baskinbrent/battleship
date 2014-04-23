@@ -6,11 +6,18 @@ using Battleship;
 
 namespace bs
 {
-    class Game : IGame
+    public class Game : IGame
     {
+        public Game()
+        {
+            boards = new List<IBoard>(new IBoard[] { new Board(), new Board() });
+            NewGame();
+        }
+
+        private List<IBoard> boards;
         public IBoard[] Boards
         {
-            get { throw new NotImplementedException(); }
+            get { return boards.ToArray(); }
         }
 
         public Player Turn
@@ -25,17 +32,15 @@ namespace bs
 
         public void NewGame()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < boards.Count; i++)
+            {
+                boards[i].NewGame();
+            }
         }
 
         public bool IsOver
         {
             get { throw new NotImplementedException(); }
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
         }
     }
 }

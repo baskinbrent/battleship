@@ -23,6 +23,5 @@ namespace Battleship
         //restarts the boards
         void NewGame();
         bool IsOver { get; }
-        void Reset();
     }
 }
