@@ -14,6 +14,9 @@ namespace Battleship
     public partial class BoardControl : UserControl
     {
 
+        public event EventHandler AllShipsPlaced;
+        public event EventHandler ShotFired;
+
         private Player player;
         public Player Player { get { return player; } set { player = value; Redraw(null); } }
         private IBoard board;
@@ -60,6 +63,10 @@ namespace Battleship
                         {
                             fill = Brushes.Gray;
                         }
+                        else if (Player == Player.Computer && cells[i, j] == Cell.Ship)
+                        {
+                            fill = Brushes.Blue;
+                        }
                         else
                         {
                             if (cells[i, j] == Cell.Hit)
@@ -81,6 +88,13 @@ namespace Battleship
                 }
                 if (board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
                 {
+                    if (Player == Player.Computer && click == MouseButtons.Left)
+                    {
+                        if (board.Fire(row, column) && ShotFired != null)
+                        {
+                            ShotFired(this, EventArgs.Empty);
+                        }
+                    }
                 } //MOVE
                 else //not all of the ships have been placed
                 {
@@ -94,6 +108,10 @@ namespace Battleship
                         else if (click == MouseButtons.Left) //place boat
                         {
                             board.Place(board.ShipsLeftToPlace[0], row, column, orientation);
+                            if (board.ShipsLeftToPlace.Length == 0 && AllShipsPlaced != null)
+                            {
+                                AllShipsPlaced(this, EventArgs.Empty);
+                            }
                         }
                         if (board.ShipFits(ship, row, column, orientation))
                         {

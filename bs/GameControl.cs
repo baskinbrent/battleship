@@ -33,6 +33,25 @@ namespace bs
         public GameControl()
         {
             InitializeComponent();
+            brdPlayer.AllShipsPlaced += new EventHandler(brdPlayer_AllShipsPlaced);
+            brdComputer.ShotFired += new EventHandler(brdComputer_ShotFired);
+        }
+
+        void brdComputer_ShotFired(object sender, EventArgs e)
+        {
+            //ai logic and state checker
+            Random random = new Random();
+            while (!brdPlayer.Board.Fire(random.Next(brdPlayer.Board.Rows), random.Next(brdPlayer.Board.Columns))) ;
+            brdPlayer.Redraw(null);
+        }
+
+        void brdPlayer_AllShipsPlaced(object sender, EventArgs e)
+        {
+            //place all of the ships for the ai unit
+            for (int i = 0; brdComputer.Board.ShipsLeftToPlace.Length > 0; i++)
+            {
+                brdComputer.Board.Place(brdComputer.Board.ShipsLeftToPlace[0], i, 0, Battleship.Orientation.Horizontal);
+            }
         }
 
         public void Redraw()
