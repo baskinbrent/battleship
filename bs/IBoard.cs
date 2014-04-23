@@ -23,9 +23,9 @@ namespace Battleship
     public interface IBoard
     {
         //the number of rows the board has
-        int Rows { get; }
-        //the number of columns the board has
         int Columns { get; }
+        //the number of columns the board has
+        int Rows { get; }
         //returns an array of ships that have no yet been placed on the board. 
         IShip[] ShipsLeftToPlace { get; }
         //places a ship starting at the specified (row, column) with the specified orientation. 

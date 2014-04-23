@@ -46,42 +46,55 @@ namespace Battleship
             {
                 Bitmap bmp = new Bitmap(picView.Width, picView.Height);
                 Graphics g = Graphics.FromImage(bmp);
-                int width = picView.Width / Board.Columns,
-                    height = picView.Height / Board.Rows,
+                Cell[,] cells = board.Cells;
+                int width = picView.Width / board.Rows,
+                    height = picView.Height / board.Columns,
                     column = x / width,
                     row = y / height;
-                for (int i = 0; i < Board.Columns; i++)
+                for (int i = 0; i < board.Rows; i++)
                 {
-                    for (int j = 0; j < Board.Rows; j++)
+                    for (int j = 0; j < board.Columns; j++)
                     {
-                        g.FillRectangle(Brushes.Blue, i * width, j * height, width, height);
-                        g.DrawRectangle(Pens.Black, i * width, j * height, width, height);
+                        Brush fill = Brushes.Yellow;
+                        if (Player == Player.Human && cells[i, j] == Cell.Ship)
+                        {
+                            fill = Brushes.Gray;
+                        }
+                        else
+                        {
+                            if (cells[i, j] == Cell.Hit)
+                            {
+                                fill = Brushes.Red;
+                            }
+                            else if (cells[i, j] == Cell.Miss)
+                            {
+                                fill = Brushes.White;
+                            }
+                            else if (cells[i, j] == Cell.Water)
+                            {
+                                fill = Brushes.Blue;
+                            }
+                        }
+                        g.FillRectangle(fill, j * width, i * height, width, height);
+                        g.DrawRectangle(Pens.Black, j * width, i * height, width, height);
                     }
                 }
-                if (Board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
+                if (board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
                 {
-                    if (Player == Player.Human) //show ships and markers
-                    {
-
-                    }
-                    else //show markers only
-                    {
-
-                    }
                 } //MOVE
                 else //not all of the ships have been placed
                 {
                     if (Player == Player.Human) //show the ship to be placed
                     {
+                        IShip ship = board.ShipsLeftToPlace[0];
                         if (click == MouseButtons.Right) //change orientation 
                         {
                             orientation = orientation == Orientation.Horizontal ? Orientation.Vertical : Orientation.Horizontal;
                         }
                         else if (click == MouseButtons.Left) //place boat
                         {
-                            Board.Place(Board.ShipsLeftToPlace[0], column, row, orientation);
+                            board.Place(board.ShipsLeftToPlace[0], row, column, orientation);
                         }
-                        IShip ship = board.ShipsLeftToPlace[0];
                         if (board.ShipFits(ship, row, column, orientation))
                         {
                             for (int i = 0; i < ship.Size; i++)
@@ -89,7 +102,7 @@ namespace Battleship
                                 g.FillRectangle(Brushes.Gray,
                                     ((orientation == Orientation.Horizontal ? i : 0) + column) * width,
                                     ((orientation == Orientation.Vertical ? i : 0) + row) * height,
-                                    width, 
+                                    width,
                                     height);
                                 g.DrawRectangle(Pens.Black,
                                     ((orientation == Orientation.Horizontal ? i : 0) + column) * width,

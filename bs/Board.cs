@@ -11,20 +11,18 @@ namespace Battleship
 
         private List<IShip> ships;
         private Cell[,] cells;
-        //private Cell[][] cells = new Cell[10]; //C#
-        //public Cell[][] cells = new Cell[10][10]; //java
 
         public Board()
         {
             NewGame();
         }
 
-        public int Rows
+        public int Columns
         {
             get { return 10; }
         }
 
-        public int Columns
+        public int Rows
         {
             get { return 10; }
         }
@@ -71,7 +69,7 @@ namespace Battleship
         {
             if (orientation == Orientation.Vertical)
             {
-                if (row + ship.Size > Rows)
+                if (row + ship.Size > Columns)
                 {
                     return false;
                 }
@@ -88,7 +86,7 @@ namespace Battleship
             if (orientation == Orientation.Horizontal)
             {
 
-                if (column + ship.Size > Columns)
+                if (column + ship.Size > Rows)
                 {
                     return false;
                 }
@@ -133,9 +131,15 @@ namespace Battleship
         {
             get
             {
-                Cell[,] cells = new Cell[this.cells.GetLength(0), this.cells.GetLength(1)];
-                this.cells.CopyTo(cells, 0);
-                return cells;
+                Cell[,] copy = new Cell[Rows, Columns];
+                for (int i = 0; i < Rows; i++)
+                {
+                    for (int j = 0; j < Columns; j++)
+                    {
+                        copy[i, j] = cells[i, j];
+                    }
+                }
+                return copy;
             }
         }
 
@@ -148,7 +152,7 @@ namespace Battleship
                 new Ship() { Size = 3},
                 new Ship() { Size = 2}
             });
-            cells = new Cell[10, 10];
+            cells = new Cell[Rows, Columns];
         }
 
 
@@ -157,9 +161,9 @@ namespace Battleship
             get
             {
 
-                for (int i = 0; i < Rows; i++)
+                for (int i = 0; i < Columns; i++)
                 {
-                    for (int j = 0; j < Columns; j++)
+                    for (int j = 0; j < Rows; j++)
                     {
                         if (cells[i, j] == Cell.Ship)
                         {

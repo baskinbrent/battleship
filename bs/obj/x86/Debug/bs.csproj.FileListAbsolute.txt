@@ -17,3 +17,4 @@ C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.Properties.Reso
 C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
 C:\Users\Logan Murphy\Desktop\cis\battleship\bs\bin\Debug\bs.exe
 C:\Users\Logan Murphy\Desktop\cis\battleship\bs\bin\Debug\bs.pdb
+C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
