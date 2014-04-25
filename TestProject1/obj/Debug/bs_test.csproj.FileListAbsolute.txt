@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 G:\CIS3309\Battleship4\battleship\TestProject1\obj\Debug\bs_test.csprojResolveAssemblyReference.cache
 G:\CIS3309\Battleship4\battleship\TestProject1\bin\Debug\TestProject1.dll
 G:\CIS3309\Battleship4\battleship\TestProject1\bin\Debug\TestProject1.pdb
@@ -18,4 +17,3 @@ G:\CIS3309\battleship\TestProject1\bin\Debug\bs_Accessor.pdb
 G:\CIS3309\battleship\TestProject1\obj\Debug\bs_test.csprojResolveAssemblyReference.cache
 G:\CIS3309\battleship\TestProject1\obj\Debug\TestProject1.dll
 G:\CIS3309\battleship\TestProject1\obj\Debug\TestProject1.pdb
->>>>>>> f0da018634c6db96f432b414bba858a131c52703
