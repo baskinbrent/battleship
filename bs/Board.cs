@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class Board : IBoard
+   public class Board : IBoard
     {
 
         private List<IShip> ships;
@@ -105,24 +105,27 @@ namespace Battleship
 
         public bool Fire(int row, int column)
         {
-            if (ShipsLeftToPlace.Length == 0)
+            if (row < 10 && column < 10 && row >= 0 && column >= 0)
             {
-                if (cells[row, column] != Cell.Hit)
+                if (ShipsLeftToPlace.Length == 0)
                 {
-                    if (cells[row, column] == Cell.Ship)
+                    if (cells[row, column] != Cell.Hit)
                     {
-                        cells[row, column] = Cell.Hit;
+                        if (cells[row, column] == Cell.Ship)
+                        {
+                            cells[row, column] = Cell.Hit;
 
-                        return true;
-                    }
-                    if (cells[row, column] == Cell.Water)
-                    {
-                        cells[row, column] = Cell.Miss;
+                            return true;
+                        }
+                        if (cells[row, column] == Cell.Water)
+                        {
+                            cells[row, column] = Cell.Miss;
 
-                        return true;
+                            return true;
+                        }
                     }
+
                 }
-
             }
             return false;
         }

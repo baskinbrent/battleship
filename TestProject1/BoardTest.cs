@@ -10,21 +10,11 @@ namespace TestProject1
     [TestClass]
     public class BoardTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        
+        static int Rows = 10;
+        static int Columns = 10;
+      
 
-        /// <summary>
-        ///A test for Board Constructor
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("bs.exe")]
-        public void BoardConstructorTest()
-        {
-            Board_Accessor target = new Board_Accessor();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
 
         /// <summary>
         ///A test for Fire
@@ -33,14 +23,34 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void FireTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.Fire(row, column);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+
+         
+            IBoard board = new Board();
+            IShip[] ships = board.ShipsLeftToPlace;
+            
+
+
+          Assert.IsFalse(board.Fire(0,0));
+          Assert.AreEqual(Cell.Water, board.Cells[0, 0]);
+
+          Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Vertical));
+          Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Vertical));
+          Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Vertical));
+          Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Vertical));
+          Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Vertical));
+
+
+          Assert.AreEqual(Cell.Ship, board.Cells[0, 0]);
+          board.Fire(0, 0);
+          Assert.AreEqual(Cell.Hit, board.Cells[0,0]);
+
+          Assert.AreEqual(Cell.Water, board.Cells[9, 9]);
+          board.Fire(9, 9);
+          Assert.AreEqual(Cell.Miss, board.Cells[9, 9]);
+
+          Assert.IsFalse(board.Fire(10, 10));
+
+         
         }
 
         /// <summary>
@@ -50,9 +60,28 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void NewGameTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            target.NewGame();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            List<IShip> ships = new List<IShip>(new IShip[]{
+                new Ship() { Size = 5},
+                new Ship() { Size = 4},
+                new Ship() { Size = 3},
+                new Ship() { Size = 3},
+                new Ship() { Size = 2}
+            });
+            Cell[,] cells = new Cell[Rows, Columns];
+
+            
+            Assert.IsNotNull(ships);
+            Assert.AreEqual(5, ships.Count);
+            Assert.AreEqual(5, ships[0].Size);
+            Assert.AreEqual(4, ships[1].Size);
+            Assert.AreEqual(3, ships[2].Size);
+            Assert.AreEqual(3, ships[3].Size);
+            Assert.AreEqual(2, ships[4].Size);
+
+            
+            Assert.IsNotNull(cells);
+            Assert.AreEqual(Rows, cells.GetLength(0));
+            Assert.AreEqual(Columns, cells.GetLength(0));
         }
 
         /// <summary>
@@ -62,16 +91,35 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void PlaceTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            IShip ship = null; // TODO: Initialize to an appropriate value
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            Orientation orientation = new Orientation(); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.Place(ship, row, column, orientation);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+     
+
+            IBoard board = new Board();
+            IShip[] ships = board.ShipsLeftToPlace;
+
+            Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Vertical));
+            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); //Should be false because ship is already placed
+            Assert.IsFalse(board.Place(ships[1], 0, 0, Orientation.Vertical)); // Should be false because ship does not fit there
+            Assert.IsFalse(board.Place(ships[1], 9, 9, Orientation.Vertical)); // Should be false because ship does not fit there
+            Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Vertical));
+            Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Vertical));
+            Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Vertical));
+            Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Vertical));
+            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); // Placing ship after all ships are place should be false.
+
+
+            board.NewGame();
+
+            Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Horizontal));
+            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Horizontal)); //Should be false because ship is already placed
+            Assert.IsFalse(board.Place(ships[1], 0, 0, Orientation.Horizontal)); // Should be false because ship does not fit there
+            Assert.IsFalse(board.Place(ships[1], 9, 9, Orientation.Horizontal)); // Should be false because ship does not fit there
+            Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Horizontal));
+            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Horizontal)); // Placing ship after all ships are place should be false.
+
+           
         }
 
         /// <summary>
@@ -81,16 +129,42 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void ShipFitsTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            IShip ship = null; // TODO: Initialize to an appropriate value
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            Orientation orientation = new Orientation(); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.ShipFits(ship, row, column, orientation);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+        
+
+            IBoard board = new Board();
+            IShip[] ships = board.ShipsLeftToPlace;
+
+
+           Assert.IsTrue(board.ShipFits(ships[0], 0 , 0 , Orientation.Vertical));
+           Assert.IsTrue(board.ShipFits(ships[1], 0, 1, Orientation.Vertical));
+           Assert.IsTrue(board.ShipFits(ships[2], 0, 2, Orientation.Vertical));
+           Assert.IsTrue(board.ShipFits(ships[3], 0, 3, Orientation.Vertical));
+           Assert.IsTrue(board.ShipFits(ships[4], 0, 4, Orientation.Vertical));
+
+           Assert.IsTrue(board.ShipFits(ships[0], 0, 0, Orientation.Horizontal));
+           Assert.IsTrue(board.ShipFits(ships[1], 0, 1, Orientation.Horizontal));
+           Assert.IsTrue(board.ShipFits(ships[2], 0, 2, Orientation.Horizontal));
+           Assert.IsTrue(board.ShipFits(ships[3], 0, 3, Orientation.Horizontal));
+           Assert.IsTrue(board.ShipFits(ships[4], 0, 4, Orientation.Horizontal));
+
+           board.Place(ships[0], 0, 0, Orientation.Vertical);
+           board.Place(ships[1], 0, 1, Orientation.Vertical);
+           board.Place(ships[2], 0, 2, Orientation.Vertical);
+           board.Place(ships[3], 0, 3, Orientation.Vertical);
+           board.Place(ships[4], 0, 4, Orientation.Vertical);
+
+           Assert.IsFalse(board.ShipFits(ships[0], 0, 0, Orientation.Vertical));
+           Assert.IsFalse(board.ShipFits(ships[1], 0, 1, Orientation.Vertical));
+           Assert.IsFalse(board.ShipFits(ships[2], 0, 2, Orientation.Vertical));
+           Assert.IsFalse(board.ShipFits(ships[3], 0, 3, Orientation.Vertical));
+           Assert.IsFalse(board.ShipFits(ships[4], 0, 4, Orientation.Vertical));
+
+           Assert.IsFalse(board.ShipFits(ships[0], 0, 0, Orientation.Horizontal));
+           Assert.IsFalse(board.ShipFits(ships[1], 1, 0, Orientation.Horizontal));
+           Assert.IsFalse(board.ShipFits(ships[2], 2, 0, Orientation.Horizontal));
+           Assert.IsFalse(board.ShipFits(ships[3], 3, 0, Orientation.Horizontal));
+           Assert.IsFalse(board.ShipFits(ships[4], 4, 0, Orientation.Horizontal));
+
         }
 
         /// <summary>
