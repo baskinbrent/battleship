@@ -59,6 +59,7 @@
     <Compile Include="BoardControl.designer.cs">
       <DependentUpon>BoardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameControl.cs">
       <SubType>UserControl</SubType>

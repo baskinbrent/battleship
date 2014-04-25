@@ -8,6 +8,8 @@ namespace bs
 {
     public class Game : IGame
     {
+        private Player player;
+
         public Game()
         {
             boards = new List<IBoard>(new IBoard[] { new Board(), new Board() });
@@ -22,9 +24,10 @@ namespace bs
 
         public Player Turn
         {
-            get { throw new NotImplementedException(); }
+            get { return player; }
         }
 
+        //fire to the proper board
         public bool Fire(int row, int column)
         {
             throw new NotImplementedException();
@@ -32,6 +35,7 @@ namespace bs
 
         public void NewGame()
         {
+            player = Player.Human;
             for (int i = 0; i < boards.Count; i++)
             {
                 boards[i].NewGame();

@@ -43,14 +43,30 @@ namespace bs
             Random random = new Random();
             while (!brdPlayer.Board.Fire(random.Next(brdPlayer.Board.Rows), random.Next(brdPlayer.Board.Columns))) ;
             brdPlayer.Redraw(null);
+            if (brdPlayer.Board.IsOver || brdComputer.Board.IsOver)
+            {
+                if (brdPlayer.Board.IsOver && brdComputer.Board.IsOver) //tie
+                {
+
+                }
+                else if (brdPlayer.Board.IsOver) //player won
+                {
+
+                }
+                else if (brdComputer.Board.IsOver) //computer won
+                {
+
+                }
+            }
         }
 
         void brdPlayer_AllShipsPlaced(object sender, EventArgs e)
         {
             //place all of the ships for the ai unit
-            for (int i = 0; brdComputer.Board.ShipsLeftToPlace.Length > 0; i++)
+            Random random = new Random();
+            while (brdComputer.Board.ShipsLeftToPlace.Length > 0)
             {
-                brdComputer.Board.Place(brdComputer.Board.ShipsLeftToPlace[0], i, 0, Battleship.Orientation.Horizontal);
+                brdComputer.Board.Place(brdComputer.Board.ShipsLeftToPlace[0], random.Next(brdComputer.Board.Rows), random.Next(brdComputer.Board.Columns), random.Next(2) == 1 ? Battleship.Orientation.Horizontal : Battleship.Orientation.Vertical);
             }
         }
 
