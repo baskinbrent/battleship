@@ -23,5 +23,9 @@ namespace Battleship
         //restarts the boards
         void NewGame();
         bool IsOver { get; }
+        int Rows { get; }
+        int Columns { get; }
+        Player? Winner { get; }
+        int Turns { get; }
     }
 }

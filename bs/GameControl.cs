@@ -23,6 +23,7 @@ namespace bs
             {
                 if ((game = value) != null)
                 {
+                    brdComputer.Game = game;
                     brdPlayer.Board = game.Boards[0];
                     brdComputer.Board = game.Boards[1];
                 }
@@ -37,27 +38,38 @@ namespace bs
             brdComputer.ShotFired += new EventHandler(brdComputer_ShotFired);
         }
 
+        private bool IsOver()
+        {
+            if (game.IsOver)
+            {
+                Player? winner = game.Winner;
+                if (winner == Player.Computer) //computer won
+                {
+                    MessageBox.Show("You lost!");
+                }
+                else if (winner == Player.Human) //player won
+                {
+                    MessageBox.Show("You won!");
+                }
+                Database.AddStatistics(winner, game.Turns);
+                game.NewGame();
+                Redraw();
+                return true;
+            }
+            return false;
+        }
+
         void brdComputer_ShotFired(object sender, EventArgs e)
         {
             //ai logic and state checker
-            Random random = new Random();
-            while (!brdPlayer.Board.Fire(random.Next(brdPlayer.Board.Rows), random.Next(brdPlayer.Board.Columns))) ;
-            brdPlayer.Redraw(null);
-            if (brdPlayer.Board.IsOver || brdComputer.Board.IsOver)
+            if (!IsOver())
             {
-                if (brdPlayer.Board.IsOver && brdComputer.Board.IsOver) //tie
-                {
-
-                }
-                else if (brdPlayer.Board.IsOver) //player won
-                {
-
-                }
-                else if (brdComputer.Board.IsOver) //computer won
-                {
-
-                }
+                Random random = new Random();
+                while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
+                brdPlayer.Redraw(null);
+                IsOver();
             }
+            
         }
 
         void brdPlayer_AllShipsPlaced(object sender, EventArgs e)

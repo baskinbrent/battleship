@@ -20,7 +20,6 @@ C:\Users\Logan Murphy\Desktop\cis\battleship\bs\bin\Debug\bs.pdb
 C:\Users\Logan Murphy\Desktop\cis\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
 G:\CIS3309\battleship\bs\bin\Debug\bs.exe
 G:\CIS3309\battleship\bs\bin\Debug\bs.pdb
-G:\CIS3309\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
 G:\CIS3309\battleship\bs\obj\x86\Debug\Battleship.Battleship.resources
 G:\CIS3309\battleship\bs\obj\x86\Debug\Battleship.BoardControl.resources
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.GameControl.resources
