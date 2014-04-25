@@ -25,6 +25,7 @@ namespace Battleship
         bool IsOver { get; }
         int Rows { get; }
         int Columns { get; }
-        Player Winner { get; }
+        Player? Winner { get; }
+        int Turns { get; }
     }
 }

@@ -87,6 +87,7 @@ namespace Battleship
                         g.DrawRectangle(Pens.Black, j * width, i * height, width, height);
                     }
                 }
+                picView.Image = bmp;
                 if (board.ShipsLeftToPlace.Length == 0) //all of the ships have been placed
                 {
                     if (Player == Player.Computer && click == MouseButtons.Left)
@@ -132,7 +133,6 @@ namespace Battleship
                         }
                     }
                 }
-                picView.Image = bmp;
             }
         }
     }

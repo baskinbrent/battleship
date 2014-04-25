@@ -9,6 +9,8 @@ namespace bs
     public class Game : IGame
     {
         private Player player;
+        private int turns;
+        public int Turns { get { return turns; } }
 
         public Game()
         {
@@ -45,6 +47,7 @@ namespace bs
                     if (boards[1].Fire(row, column))
                     {
                         player = Player.Computer;
+                        turns++;
                         return true;
                     }
                 }
@@ -57,6 +60,7 @@ namespace bs
             player = Player.Human;
             boards[0].NewGame();
             boards[1].NewGame();
+            turns = 0;
         }
 
         public bool IsOver

@@ -13,7 +13,6 @@ namespace bs
     public partial class GameControl : UserControl
     {
         private IGame game;
-        private int turns;
         public IGame Game
         {
             get
@@ -39,21 +38,12 @@ namespace bs
             brdComputer.ShotFired += new EventHandler(brdComputer_ShotFired);
         }
 
-        void brdComputer_ShotFired(object sender, EventArgs e)
+        private bool IsOver()
         {
-            //ai logic and state checker
-            Random random = new Random();
-            while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
-            brdPlayer.Redraw(null);
-            turns++;
             if (game.IsOver)
             {
                 Player? winner = game.Winner;
-                if (winner == null) //tie
-                {
-                    MessageBox.Show("You tied!");
-                }
-                else if (winner == Player.Computer) //computer won
+                if (winner == Player.Computer) //computer won
                 {
                     MessageBox.Show("You lost!");
                 }
@@ -61,11 +51,25 @@ namespace bs
                 {
                     MessageBox.Show("You won!");
                 }
-                Database.AddStatistics(winner, turns);
+                Database.AddStatistics(winner, game.Turns);
                 game.NewGame();
                 Redraw();
-                turns = 0;
+                return true;
             }
+            return false;
+        }
+
+        void brdComputer_ShotFired(object sender, EventArgs e)
+        {
+            //ai logic and state checker
+            if (!IsOver())
+            {
+                Random random = new Random();
+                while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
+                brdPlayer.Redraw(null);
+                IsOver();
+            }
+            
         }
 
         void brdPlayer_AllShipsPlaced(object sender, EventArgs e)
