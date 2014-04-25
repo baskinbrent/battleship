@@ -21,6 +21,7 @@ namespace Battleship
         public Player Player { get { return player; } set { player = value; Redraw(null); } }
         private IBoard board;
         public IBoard Board { get { return board; } set { board = value; Redraw(null); } }
+        public IGame Game { get; set; }
         private int x, y;
         private Orientation orientation;
 
@@ -90,7 +91,7 @@ namespace Battleship
                 {
                     if (Player == Player.Computer && click == MouseButtons.Left)
                     {
-                        if (board.Fire(row, column) && ShotFired != null)
+                        if (Game.Fire(row, column) && ShotFired != null)
                         {
                             ShotFired(this, EventArgs.Empty);
                         }

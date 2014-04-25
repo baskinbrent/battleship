@@ -13,6 +13,7 @@ namespace bs
     public partial class GameControl : UserControl
     {
         private IGame game;
+        private int turns;
         public IGame Game
         {
             get
@@ -23,6 +24,7 @@ namespace bs
             {
                 if ((game = value) != null)
                 {
+                    brdComputer.Game = game;
                     brdPlayer.Board = game.Boards[0];
                     brdComputer.Board = game.Boards[1];
                 }
@@ -41,22 +43,28 @@ namespace bs
         {
             //ai logic and state checker
             Random random = new Random();
-            while (!brdPlayer.Board.Fire(random.Next(brdPlayer.Board.Rows), random.Next(brdPlayer.Board.Columns))) ;
+            while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
             brdPlayer.Redraw(null);
-            if (brdPlayer.Board.IsOver || brdComputer.Board.IsOver)
+            turns++;
+            if (game.IsOver)
             {
-                if (brdPlayer.Board.IsOver && brdComputer.Board.IsOver) //tie
+                Player? winner = game.Winner;
+                if (winner == null) //tie
                 {
-
+                    MessageBox.Show("You tied!");
                 }
-                else if (brdPlayer.Board.IsOver) //player won
+                else if (winner == Player.Computer) //computer won
                 {
-
+                    MessageBox.Show("You lost!");
                 }
-                else if (brdComputer.Board.IsOver) //computer won
+                else if (winner == Player.Human) //player won
                 {
-
+                    MessageBox.Show("You won!");
                 }
+                Database.AddStatistics(winner, turns);
+                game.NewGame();
+                Redraw();
+                turns = 0;
             }
         }
 

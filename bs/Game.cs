@@ -30,21 +30,70 @@ namespace bs
         //fire to the proper board
         public bool Fire(int row, int column)
         {
-            throw new NotImplementedException();
+            if (!IsOver)
+            {
+                if (player == Player.Computer)
+                {
+                    if (boards[0].Fire(row, column))
+                    {
+                        player = Player.Human;
+                        return true;
+                    }
+                }
+                else if (player == Player.Human)
+                {
+                    if (boards[1].Fire(row, column))
+                    {
+                        player = Player.Computer;
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public void NewGame()
         {
             player = Player.Human;
-            for (int i = 0; i < boards.Count; i++)
-            {
-                boards[i].NewGame();
-            }
+            boards[0].NewGame();
+            boards[1].NewGame();
         }
 
         public bool IsOver
         {
-            get { throw new NotImplementedException(); }
+            get { return boards[0].IsOver || boards[1].IsOver; }
+        }
+
+
+        public int Rows
+        {
+            get { return 10; }
+        }
+
+        public int Columns
+        {
+            get { return 10; }
+        }
+
+
+        public Player? Winner
+        {
+            get
+            {
+                if (boards[0].IsOver && boards[1].IsOver)
+                {
+                    return null;
+                }
+                else if (boards[0].IsOver)
+                {
+                    return Player.Computer;
+                }
+                else if (boards[1].IsOver)
+                {
+                    return Player.Human;
+                }
+                return null;
+            }
         }
     }
 }
