@@ -174,10 +174,20 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void CellsTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
+            IBoard board = new Board(); 
             Cell[,] actual;
-            actual = target.Cells;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            actual = board.Cells;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Assert.AreEqual(actual[i,j], Cell.Water);
+                }
+            }
+
+            Assert.AreEqual(actual.GetLength(0), 10);
+            Assert.AreEqual(actual.GetLength(1), 10);
+
         }
 
         /// <summary>
@@ -187,10 +197,9 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void ColumnsTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.Columns;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IBoard board = new Board();
+            Assert.AreEqual(board.Columns, 10);
+            
         }
 
         /// <summary>
@@ -200,10 +209,21 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void IsOverTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsOver;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IBoard board = new Board();
+
+            board.Cells[0, 0] = Cell.Ship;
+            board.Cells[9, 9] = Cell.Ship;
+
+            Assert.IsFalse(board.IsOver);
+
+            board.Cells[0, 0] = Cell.Water;
+
+            Assert.IsFalse(board.IsOver);
+
+            board.Cells[9, 9] = Cell.Water;
+
+            Assert.IsTrue(board.IsOver);
+
         }
 
         /// <summary>
@@ -213,10 +233,8 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void RowsTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.Rows;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IBoard board = new Board();
+            Assert.AreEqual(board.Rows, 10);
         }
 
         /// <summary>
@@ -226,10 +244,22 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void ShipsLeftToPlaceTest()
         {
-            Board_Accessor target = new Board_Accessor(); // TODO: Initialize to an appropriate value
-            IShip[] actual;
-            actual = target.ShipsLeftToPlace;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IBoard board = new Board();
+            IShip[] ships = board.ShipsLeftToPlace;
+
+            Assert.AreEqual(board.ShipsLeftToPlace, ships.Length);
+            board.Place(ships[0], 0, 0, Orientation.Vertical);
+            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 1));
+            board.Place(ships[1], 0, 1, Orientation.Vertical);
+            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 2));
+            board.Place(ships[2], 0, 2, Orientation.Vertical);
+            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 3));
+            board.Place(ships[3], 0, 3, Orientation.Vertical);
+            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 4));
+            board.Place(ships[4], 0, 4, Orientation.Vertical);
+            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 5));
+
+
         }
     }
 }
