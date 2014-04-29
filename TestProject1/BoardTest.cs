@@ -96,27 +96,28 @@ namespace TestProject1
             IBoard board = new Board();
             IShip[] ships = board.ShipsLeftToPlace;
 
-            Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Vertical));
-            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); //Should be false because ship is already placed
-            Assert.IsFalse(board.Place(ships[1], 0, 0, Orientation.Vertical)); // Should be false because ship does not fit there
-            Assert.IsFalse(board.Place(ships[1], 9, 9, Orientation.Vertical)); // Should be false because ship does not fit there
-            Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Vertical));
-            Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Vertical));
-            Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Vertical));
-            Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Vertical));
-            Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); // Placing ship after all ships are place should be false.
+               Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Vertical));
+               Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); //Should be false because ship is already placed
+               Assert.IsFalse(board.Place(ships[1], 0, 0, Orientation.Vertical)); // Should be false because ship does not fit there
+               Assert.IsFalse(board.Place(ships[1], 9, 9, Orientation.Vertical)); // Should be false because ship does not fit there
+               Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Vertical));
+               Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Vertical));
+               Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Vertical));
+               Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Vertical));
+               Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Vertical)); // Placing ship after all ships are place should be false.
 
 
-            board.NewGame();
-
+               board = new Board();
+               ships = board.ShipsLeftToPlace;
+          
             Assert.IsTrue(board.Place(ships[0], 0, 0, Orientation.Horizontal));
             Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Horizontal)); //Should be false because ship is already placed
             Assert.IsFalse(board.Place(ships[1], 0, 0, Orientation.Horizontal)); // Should be false because ship does not fit there
             Assert.IsFalse(board.Place(ships[1], 9, 9, Orientation.Horizontal)); // Should be false because ship does not fit there
-            Assert.IsTrue(board.Place(ships[1], 0, 1, Orientation.Horizontal));
-            Assert.IsTrue(board.Place(ships[2], 0, 2, Orientation.Horizontal));
-            Assert.IsTrue(board.Place(ships[3], 0, 3, Orientation.Horizontal));
-            Assert.IsTrue(board.Place(ships[4], 0, 4, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[1], 1, 0, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[2], 2, 0, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[3], 3, 0, Orientation.Horizontal));
+            Assert.IsTrue(board.Place(ships[4], 4, 0, Orientation.Horizontal));
             Assert.IsFalse(board.Place(ships[0], 0, 0, Orientation.Horizontal)); // Placing ship after all ships are place should be false.
 
 
@@ -209,18 +210,24 @@ namespace TestProject1
         [DeploymentItem("bs.exe")]
         public void IsOverTest()
         {
+
             IBoard board = new Board();
+            IShip[] ships = board.ShipsLeftToPlace;
 
-            board.Cells[0, 0] = Cell.Ship;
-            board.Cells[9, 9] = Cell.Ship;
+
+            board.Place(ships[0], 0, 0, Orientation.Vertical);
+            board.Place(ships[1], 0, 1, Orientation.Vertical);
+            board.Place(ships[2], 0, 2, Orientation.Vertical);
+            board.Place(ships[3], 0, 3, Orientation.Vertical);
+            board.Place(ships[4], 0, 4, Orientation.Vertical);
 
             Assert.IsFalse(board.IsOver);
 
-            board.Cells[0, 0] = Cell.Water;
-
-            Assert.IsFalse(board.IsOver);
-
-            board.Cells[9, 9] = Cell.Water;
+            board.Fire(0, 0); board.Fire(1, 0); board.Fire(2, 0); board.Fire(3, 0); board.Fire(4, 0);
+            board.Fire(0, 1); board.Fire(1, 1); board.Fire(2, 1); board.Fire(3, 1);
+            board.Fire(0, 2); board.Fire(1, 2); board.Fire(2, 2);
+            board.Fire(0, 3); board.Fire(1, 3); board.Fire(2, 3);
+            board.Fire(0, 4); board.Fire(1, 4); 
 
             Assert.IsTrue(board.IsOver);
 
@@ -247,17 +254,17 @@ namespace TestProject1
             IBoard board = new Board();
             IShip[] ships = board.ShipsLeftToPlace;
 
-            Assert.AreEqual(board.ShipsLeftToPlace, ships.Length);
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, ships.Length);
             board.Place(ships[0], 0, 0, Orientation.Vertical);
-            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 1));
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, (ships.Length - 1));
             board.Place(ships[1], 0, 1, Orientation.Vertical);
-            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 2));
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, (ships.Length - 2));
             board.Place(ships[2], 0, 2, Orientation.Vertical);
-            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 3));
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, (ships.Length - 3));
             board.Place(ships[3], 0, 3, Orientation.Vertical);
-            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 4));
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, (ships.Length - 4));
             board.Place(ships[4], 0, 4, Orientation.Vertical);
-            Assert.AreEqual(board.ShipsLeftToPlace, (ships.Length - 5));
+            Assert.AreEqual(board.ShipsLeftToPlace.Length, (ships.Length - 5));
 
 
         }

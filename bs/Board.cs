@@ -164,9 +164,9 @@ namespace Battleship
             get
             {
 
-                for (int i = 0; i < Columns; i++)
+                for (int i = 0; i < Rows; i++)
                 {
-                    for (int j = 0; j < Rows; j++)
+                    for (int j = 0; j < Columns; j++)
                     {
                         if (cells[i, j] == Cell.Ship)
                         {

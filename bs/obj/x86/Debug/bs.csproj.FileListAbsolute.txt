@@ -44,3 +44,12 @@ C:\Users\Brent\Desktop\battleship\battleship\bs\obj\x86\Debug\Battleship.BoardCo
 C:\Users\Brent\Desktop\battleship\battleship\bs\obj\x86\Debug\bs.GameControl.resources
 C:\Users\Brent\Desktop\battleship\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
 C:\Users\Brent\Desktop\battleship\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\bs.exe
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\bs.pdb
+G:\CIS3309\Battleship2\battleship\bs\bin\Debug\bs.exe
+G:\CIS3309\Battleship2\battleship\bs\bin\Debug\bs.pdb
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\Battleship.Battleship.resources
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\Battleship.BoardControl.resources
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\bs.GameControl.resources
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
+G:\CIS3309\Battleship2\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache

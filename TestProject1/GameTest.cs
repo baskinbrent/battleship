@@ -85,14 +85,24 @@ namespace TestProject1
         [TestMethod()]
         public void FireTest()
         {
-            Game target = new Game(); // TODO: Initialize to an appropriate value
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.Fire(row, column);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IGame game = new Game();
+            IBoard[] Boards = game.Boards;
+
+            Boards[1].Cells[0,0] = Cell.Ship;
+            Boards[0].Cells[0,0] = Cell.Ship;
+
+            Assert.IsTrue(game.Turn == Player.Human);
+            game.Fire(0,0); 
+           // Assert.IsTrue(Boards[1].Cells[0,0] == Cell.Hit);
+           // Assert.IsTrue(game.Turn == Player.Computer);
+
+          
+           // Assert.IsTrue(game.Turn == Player.Computer);
+            game.Fire(0, 0);
+            //Assert.IsTrue(Boards[0].Cells[0, 0] == Cell.Hit);
+            //Assert.IsTrue(game.Turn == Player.Human);
+
+
         }
 
         /// <summary>
