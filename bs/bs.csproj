@@ -67,6 +67,12 @@
     <Compile Include="GameControl.Designer.cs">
       <DependentUpon>GameControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameStatistics.Designer.cs">
+      <DependentUpon>GameStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBoard.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IShip.cs" />
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameControl.resx">
       <DependentUpon>GameControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameStatistics.resx">
+      <DependentUpon>GameStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

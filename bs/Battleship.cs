@@ -20,5 +20,11 @@ namespace Battleship
             game = new Game();
             gameViewer.Game = game;
         }
+
+        private void btnGameStatistics_Click(object sender, EventArgs e)
+        {
+            frmGameStatistics GameStats = new frmGameStatistics();
+            GameStats.ShowDialog();
+        }
     }
 }
