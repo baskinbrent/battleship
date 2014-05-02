@@ -35,10 +35,10 @@
             // lblInstructions
             // 
             this.lblInstructions.AutoSize = true;
-            this.lblInstructions.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstructions.Location = new System.Drawing.Point(31, 9);
+            this.lblInstructions.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstructions.Location = new System.Drawing.Point(47, 9);
             this.lblInstructions.Name = "lblInstructions";
-            this.lblInstructions.Size = new System.Drawing.Size(501, 136);
+            this.lblInstructions.Size = new System.Drawing.Size(457, 216);
             this.lblInstructions.TabIndex = 0;
             this.lblInstructions.Text = resources.GetString("lblInstructions.Text");
             this.lblInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(554, 316);
+            this.ClientSize = new System.Drawing.Size(554, 360);
             this.Controls.Add(this.lblInstructions);
             this.Name = "frmHowToPlay";
             this.Text = "How To Play";

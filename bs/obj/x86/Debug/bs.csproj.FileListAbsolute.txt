@@ -71,4 +71,20 @@ G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyRefer
 G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resources
 G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
+<<<<<<< HEAD
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
+=======
+G:\CIS3309\Battleship5\battleship\bs\bin\Debug\bs.exe.config
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.exe
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.pdb
+G:\CIS3309\Battleship5\battleship\bs\bin\Debug\Battleship.accdb
+G:\CIS3309\Battleship5\battleship\bs\bin\Debug\bs.exe
+G:\CIS3309\Battleship5\battleship\bs\bin\Debug\bs.pdb
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\Battleship.Battleship.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\Battleship.BoardControl.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.GameControl.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
+G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
+>>>>>>> 3a73dc7a6ff0ab78b23de217be3b2e2712d81a22
