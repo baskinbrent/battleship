@@ -80,23 +80,15 @@ namespace bs
         }
 
 
-        public Player? Winner
+        public Player Winner
         {
             get
             {
-                if (boards[0].IsOver && boards[1].IsOver)
-                {
-                    return null;
-                }
-                else if (boards[0].IsOver)
+                if (boards[0].IsOver)
                 {
                     return Player.Computer;
                 }
-                else if (boards[1].IsOver)
-                {
-                    return Player.Human;
-                }
-                return null;
+                return Player.Human;
             }
         }
     }

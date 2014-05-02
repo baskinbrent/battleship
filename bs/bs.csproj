@@ -52,6 +52,11 @@
     <Compile Include="Battleship.designer.cs">
       <DependentUpon>Battleship.cs</DependentUpon>
     </Compile>
+    <Compile Include="BattleshipDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Board.cs" />
     <Compile Include="BoardControl.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +105,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="BattleshipDataSet.xsc">
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BattleshipDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BattleshipDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BattleshipDataSet.xss">
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +128,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Battleship.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Battleship.csproj" />
   </ItemGroup>
   <ItemGroup />
