@@ -31,11 +31,12 @@
             this.btnGameStatistics = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.gameViewer = new bs.GameControl();
+            this.btnHowToPlay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGameStatistics
             // 
-            this.btnGameStatistics.Location = new System.Drawing.Point(57, 510);
+            this.btnGameStatistics.Location = new System.Drawing.Point(57, 497);
             this.btnGameStatistics.Name = "btnGameStatistics";
             this.btnGameStatistics.Size = new System.Drawing.Size(111, 23);
             this.btnGameStatistics.TabIndex = 1;
@@ -45,7 +46,7 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(57, 450);
+            this.btnNewGame.Location = new System.Drawing.Point(57, 456);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(111, 23);
             this.btnNewGame.TabIndex = 2;
@@ -60,11 +61,22 @@
             this.gameViewer.Size = new System.Drawing.Size(210, 418);
             this.gameViewer.TabIndex = 0;
             // 
+            // btnHowToPlay
+            // 
+            this.btnHowToPlay.Location = new System.Drawing.Point(57, 535);
+            this.btnHowToPlay.Name = "btnHowToPlay";
+            this.btnHowToPlay.Size = new System.Drawing.Size(111, 23);
+            this.btnHowToPlay.TabIndex = 3;
+            this.btnHowToPlay.Text = "How To Play";
+            this.btnHowToPlay.UseVisualStyleBackColor = true;
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
+            // 
             // Battleship
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 545);
+            this.ClientSize = new System.Drawing.Size(229, 581);
+            this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnGameStatistics);
             this.Controls.Add(this.gameViewer);
@@ -79,6 +91,7 @@
         private bs.GameControl gameViewer;
         private System.Windows.Forms.Button btnGameStatistics;
         private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnHowToPlay;
     }
 }
 
