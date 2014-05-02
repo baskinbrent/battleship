@@ -71,3 +71,4 @@ G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyRefer
 G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resources
 G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
 G:\CIS3309\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
+G:\CIS3309\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
