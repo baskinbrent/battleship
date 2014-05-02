@@ -55,7 +55,11 @@
             this.lstGameStats.FullRowSelect = true;
             this.lstGameStats.GridLines = true;
             this.lstGameStats.HideSelection = false;
+<<<<<<< HEAD
             this.lstGameStats.Location = new System.Drawing.Point(57, 85);
+=======
+            this.lstGameStats.Location = new System.Drawing.Point(90, 98);
+>>>>>>> 44fce8be4505a9e9b72fb8466776dab1ff2fa948
             this.lstGameStats.MultiSelect = false;
             this.lstGameStats.Name = "lstGameStats";
             this.lstGameStats.Size = new System.Drawing.Size(515, 274);
