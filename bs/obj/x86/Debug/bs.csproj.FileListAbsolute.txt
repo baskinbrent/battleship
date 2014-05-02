@@ -64,3 +64,6 @@ G:\CIS3309\Battleship3\battleship\bs\obj\x86\Debug\bs.GameControl.resources
 G:\CIS3309\Battleship3\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
 G:\CIS3309\Battleship3\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
 G:\CIS3309\Battleship3\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resources
+G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
+G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resources
+G:\CIS3309\BattleShip4\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources

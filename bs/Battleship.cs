@@ -26,5 +26,11 @@ namespace Battleship
             frmGameStatistics GameStats = new frmGameStatistics();
             GameStats.ShowDialog();
         }
+
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+            frmHowToPlay  HowToPlay = new frmHowToPlay();
+            HowToPlay.ShowDialog();
+        }
     }
 }

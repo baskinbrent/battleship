@@ -65,7 +65,7 @@
             // 
             // colRank
             // 
-            this.colRank.Text = "Rank (ID?)";
+            this.colRank.Text = "Rank";
             this.colRank.Width = 65;
             // 
             // colPlayerName
@@ -92,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 455);
+            this.ClientSize = new System.Drawing.Size(649, 455);
             this.Controls.Add(this.lstGameStats);
             this.Name = "frmGameStatistics";
             this.Text = "Game Statistics";
