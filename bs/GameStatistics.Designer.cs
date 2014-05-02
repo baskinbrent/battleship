@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lstGameStats = new System.Windows.Forms.ListView();
-            this.colRank = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPlayerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colLeastNumTurns = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNumWins = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,7 +46,6 @@
             // lstGameStats
             // 
             this.lstGameStats.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colRank,
             this.colPlayerName,
             this.colLeastNumTurns,
             this.colNumWins,
@@ -55,19 +53,13 @@
             this.lstGameStats.FullRowSelect = true;
             this.lstGameStats.GridLines = true;
             this.lstGameStats.HideSelection = false;
-            this.lstGameStats.Location = new System.Drawing.Point(57, 85);
-            this.lstGameStats.Location = new System.Drawing.Point(90, 98);
+            this.lstGameStats.Location = new System.Drawing.Point(97, 45);
             this.lstGameStats.MultiSelect = false;
             this.lstGameStats.Name = "lstGameStats";
-            this.lstGameStats.Size = new System.Drawing.Size(515, 274);
+            this.lstGameStats.Size = new System.Drawing.Size(446, 274);
             this.lstGameStats.TabIndex = 14;
             this.lstGameStats.UseCompatibleStateImageBehavior = false;
             this.lstGameStats.View = System.Windows.Forms.View.Details;
-            // 
-            // colRank
-            // 
-            this.colRank.Text = "Rank";
-            this.colRank.Width = 65;
             // 
             // colPlayerName
             // 
@@ -93,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 455);
+            this.ClientSize = new System.Drawing.Size(627, 370);
             this.Controls.Add(this.lstGameStats);
             this.Name = "frmGameStatistics";
             this.Text = "Game Statistics";
@@ -106,7 +98,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ColumnHeader colPlayerName;
         private System.Windows.Forms.ColumnHeader colLeastNumTurns;
-        private System.Windows.Forms.ColumnHeader colRank;
         private System.Windows.Forms.ColumnHeader colNumWins;
         private System.Windows.Forms.ColumnHeader colNumLosses;
         internal System.Windows.Forms.ListView lstGameStats;
