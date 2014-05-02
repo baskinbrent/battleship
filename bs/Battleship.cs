@@ -13,6 +13,14 @@ namespace Battleship
 {
     public partial class Battleship : Form
     {
+        public String PlayerName
+        {
+            get
+            {
+                return txtPlayerName.Text;
+            }
+        }
+
         private IGame game;
         public Battleship()
         {

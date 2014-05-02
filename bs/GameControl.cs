@@ -51,7 +51,7 @@ namespace bs
                 {
                     MessageBox.Show("You won!");
                 }
-                Database.AddStatistics("TODO", winner, game.Turns);
+                Database.AddStatistics(((Battleship.Battleship)Parent).PlayerName, winner, game.Turns);
                 game.NewGame();
                 Redraw();
                 return true;
