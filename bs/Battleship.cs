@@ -13,6 +13,14 @@ namespace Battleship
 {
     public partial class Battleship : Form
     {
+        public String PlayerName
+        {
+            get
+            {
+                return txtPlayerName.Text;
+            }
+        }
+
         private IGame game;
         public Battleship()
         {
@@ -25,6 +33,12 @@ namespace Battleship
         {
             frmGameStatistics GameStats = new frmGameStatistics();
             GameStats.ShowDialog();
+        }
+
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+            frmHowToPlay  HowToPlay = new frmHowToPlay();
+            HowToPlay.ShowDialog();
         }
     }
 }

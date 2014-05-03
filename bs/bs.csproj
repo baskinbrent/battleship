@@ -52,6 +52,11 @@
     <Compile Include="Battleship.designer.cs">
       <DependentUpon>Battleship.cs</DependentUpon>
     </Compile>
+    <Compile Include="BattleshipDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Board.cs" />
     <Compile Include="BoardControl.cs">
       <SubType>UserControl</SubType>
@@ -73,6 +78,12 @@
     <Compile Include="GameStatistics.Designer.cs">
       <DependentUpon>GameStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="HowtoPlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HowtoPlay.Designer.cs">
+      <DependentUpon>HowtoPlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBoard.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IShip.cs" />
@@ -91,6 +102,9 @@
     <EmbeddedResource Include="GameStatistics.resx">
       <DependentUpon>GameStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HowtoPlay.resx">
+      <DependentUpon>HowtoPlay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +114,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="BattleshipDataSet.xsc">
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BattleshipDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BattleshipDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BattleshipDataSet.xss">
+      <DependentUpon>BattleshipDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +137,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Battleship.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Battleship.csproj" />
   </ItemGroup>
   <ItemGroup />

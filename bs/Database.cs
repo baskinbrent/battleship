@@ -6,69 +6,85 @@ using Battleship;
 using System.Collections;
 using System.Data.OleDb;
 using System.IO;
+using System.Windows.Forms;
 
 namespace bs
 {
-    class Database
+    public class Database
     {
-        //? means it can be null (in the case of a tie)
-        public static bool AddStatistics(Player? winner, int turns)
+        public static Dictionary<string, Dictionary<string, object>> GetStatistics()
         {
-            return false;
-        }
+            Dictionary<string, Dictionary<string, object>> list = new Dictionary<string, Dictionary<string, object>>();
 
-        public static int LeastTurnsToWin
-        {
-            get { return 100; }
-        }
-
-        public static int Wins
-        {
-            get { return 0; }
-        }
-
-        public static int Losses
-        {
-            get { return 0; }
-        }
-        /*  Need To finish
-        public bool WriteStatisticsToDB()
-        {
-            string strConnection = "provider=Microsoft.ACE.OLEDB.12.0;" +
-                                   "Data Source=;";
+            string strConnection = "provider=Microsoft.ACE.OLEDB.12.0;Data Source=Battleship.accdb;";
             string strSQL = "";
             OleDbConnection myConnection = new OleDbConnection(strConnection);
             OleDbCommand myCommand = new OleDbCommand(strSQL, myConnection);
-
             try
             {
                 myConnection.Open();
-
-                foreach (Player players in Players)
+                strSQL = "SELECT Name, Min(Turns), Count(*) FROM Statistic WHERE IsWinner GROUP BY Name ORDER BY Name";
+                myCommand.CommandText = strSQL;
+                myCommand.CommandType = System.Data.CommandType.Text;
+                OleDbDataReader reader = myCommand.ExecuteReader();
+                while (reader.Read())
                 {
-                    strSQL = "INSERT INTO High_Scores (PlayerName, LeastNumTurns, NumWins, NumLosses) " +
-                         "VALUES ('" + players.PlayerName + "','" + players.LeastNumTurns + "','" + players.NumWins + "','" + players.LeastNumLosses + "')";
-
-                    myCommand.CommandText = strSQL;
-                    myCommand.CommandType = System.Data.CommandType.Text;
-                    myCommand.ExecuteNonQuery();
+                    Dictionary<string, object> fields = new Dictionary<string, object>();
+                    fields["Turns"] = reader.GetInt32(1).ToString();
+                    fields["Wins"] = reader.GetInt32(2).ToString();
+                    fields["Loses"] = 0;
+                    list[reader.GetString(0)] = fields;
                 }
+                reader.Close();
 
-                return true;
-            }
-            catch (OleDbException ex)
-            {
-                Console.WriteLine("Database Error: " + ex.Message);
-                return false;
+                strSQL = "SELECT Name, Count(*) FROM Statistic WHERE NOT IsWinner GROUP BY Name ORDER BY Name";
+                myCommand.CommandText = strSQL;
+                myCommand.CommandType = System.Data.CommandType.Text;
+                reader = myCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (!list.ContainsKey(reader.GetString(0)))
+                    {
+                        Dictionary<string, object> fields = new Dictionary<string, object>();
+                        fields["Turns"] = 100;
+                        fields["Wins"] = 0;
+                        list[reader.GetString(0)] = fields;
+                    }
+                    list[reader.GetString(0)]["Loses"] = reader.GetInt32(1).ToString();
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-                return false;
             }
-            finally
+            myConnection.Close();
+            return list;
+        }
+
+        public static bool AddStatistics(String name, Player winner, int turns)
+        {
+            string strConnection = "provider=Microsoft.ACE.OLEDB.12.0;Data Source=Battleship.accdb;";
+            string strSQL = "";
+            OleDbConnection myConnection = new OleDbConnection(strConnection);
+            OleDbCommand myCommand = new OleDbCommand(strSQL, myConnection);
+            try
             {
+                myConnection.Open();
+                strSQL = "INSERT INTO Statistic (Name, Turns, IsWinner) " +
+                     "VALUES ('" + name + "'," + turns + "," + (winner == Player.Human) + ")";
+                myCommand.CommandText = strSQL;
+                myCommand.CommandType = System.Data.CommandType.Text;
+                myCommand.ExecuteNonQuery();
                 myConnection.Close();
-            } */
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            myConnection.Close();
+            return false;
+        }
     }
 }

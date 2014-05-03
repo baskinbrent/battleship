@@ -42,7 +42,7 @@ namespace bs
         {
             if (game.IsOver)
             {
-                Player? winner = game.Winner;
+                Player winner = game.Winner;
                 if (winner == Player.Computer) //computer won
                 {
                     MessageBox.Show("You lost!");
@@ -51,7 +51,7 @@ namespace bs
                 {
                     MessageBox.Show("You won!");
                 }
-                Database.AddStatistics(winner, game.Turns);
+                Database.AddStatistics(((Battleship.Battleship)Parent).PlayerName, winner, game.Turns);
                 game.NewGame();
                 Redraw();
                 return true;
@@ -69,7 +69,7 @@ namespace bs
                 brdPlayer.Redraw(null);
                 IsOver();
             }
-            
+
         }
 
         void brdPlayer_AllShipsPlaced(object sender, EventArgs e)
