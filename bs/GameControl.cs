@@ -68,6 +68,7 @@ namespace bs
                 while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
                 brdPlayer.Redraw(null);
                 IsOver();
+                ((Battleship.Battleship)Parent).PlayerNameEnabled = true;
             }
 
         }
@@ -80,6 +81,7 @@ namespace bs
             {
                 brdComputer.Board.Place(brdComputer.Board.ShipsLeftToPlace[0], random.Next(brdComputer.Board.Rows), random.Next(brdComputer.Board.Columns), random.Next(2) == 1 ? Battleship.Orientation.Horizontal : Battleship.Orientation.Vertical);
             }
+            ((Battleship.Battleship)Parent).PlayerNameEnabled = false;
         }
 
         public void Redraw()

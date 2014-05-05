@@ -54,6 +54,7 @@
             this.btnNewGame.TabIndex = 2;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // btnHowToPlay
             // 
@@ -102,6 +103,7 @@
             this.Controls.Add(this.gameViewer);
             this.Name = "Battleship";
             this.Text = "BATTLESHIP";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Battleship_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

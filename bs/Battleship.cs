@@ -21,6 +21,18 @@ namespace Battleship
             }
         }
 
+        public bool PlayerNameEnabled
+        {
+            get
+            {
+                return txtPlayerName.Enabled;
+            }
+            set
+            {
+                txtPlayerName.Enabled = value;
+            }
+        }
+
         private IGame game;
         public Battleship()
         {
@@ -37,8 +49,38 @@ namespace Battleship
 
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
-            frmHowToPlay  HowToPlay = new frmHowToPlay();
+            frmHowToPlay HowToPlay = new frmHowToPlay();
             HowToPlay.ShowDialog();
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            if (GiveUp())
+            {
+                game.NewGame();
+                PlayerNameEnabled = true;
+                gameViewer.Redraw();
+            }
+        }
+
+        //returns a value indicating if it was ok to quit the game
+        private bool GiveUp()
+        {
+            if (game.Turns > 0)
+            {
+                if (MessageBox.Show("You are in the middle of a game. If you quit you will lose. Press OK to close the game and accept this loss or Cancel to keep playing.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    Database.AddStatistics(txtPlayerName.Text, Player.Computer, game.Turns);
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+
+        private void Battleship_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = GiveUp();
         }
     }
 }
