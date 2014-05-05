@@ -61,23 +61,6 @@ namespace TestProject1
         //
         #endregion
 
-        [TestMethod]
-        public void TestMethod1()
-        {
-            //
-            // TODO: Add test logic here
-            //
-        }
-
-        /// <summary>
-        ///A test for Game Constructor
-        ///</summary>
-        [TestMethod()]
-        public void GameConstructorTest()
-        {
-            Game target = new Game();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
 
         /// <summary>
         ///A test for Fire
@@ -85,22 +68,21 @@ namespace TestProject1
         [TestMethod()]
         public void FireTest()
         {
-            IGame game = new Game();
-            IBoard[] Boards = game.Boards;
-
-            Boards[1].Cells[0,0] = Cell.Ship;
-            Boards[0].Cells[0,0] = Cell.Ship;
-
-            Assert.IsTrue(game.Turn == Player.Human);
-            game.Fire(0,0); 
-           // Assert.IsTrue(Boards[1].Cells[0,0] == Cell.Hit);
-           // Assert.IsTrue(game.Turn == Player.Computer);
-
-          
-           // Assert.IsTrue(game.Turn == Player.Computer);
-            game.Fire(0, 0);
-            //Assert.IsTrue(Boards[0].Cells[0, 0] == Cell.Hit);
-            //Assert.IsTrue(game.Turn == Player.Human);
+            IGame target = new Game();
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+            Assert.IsTrue(target.Fire(0, 0));
+            Assert.IsTrue(target.Fire(0, 0));
+            Assert.IsTrue(target.Fire(9, 9));
+            Assert.IsTrue(target.Fire(9, 9));
 
 
         }
@@ -111,21 +93,9 @@ namespace TestProject1
         [TestMethod()]
         public void NewGameTest()
         {
-            Game target = new Game(); // TODO: Initialize to an appropriate value
-            target.NewGame();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
-
-        /// <summary>
-        ///A test for Boards
-        ///</summary>
-        [TestMethod()]
-        public void BoardsTest()
-        {
-            Game target = new Game(); // TODO: Initialize to an appropriate value
-            IBoard[] actual;
-            actual = target.Boards;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Game target = new Game();
+            Assert.AreEqual(target.Turn, Player.Human);
+            Assert.AreEqual(target.Turns, 0);
         }
 
         /// <summary>
@@ -134,10 +104,49 @@ namespace TestProject1
         [TestMethod()]
         public void IsOverTest()
         {
-            Game target = new Game(); // TODO: Initialize to an appropriate value
+            Game target = new Game();
             bool actual;
+
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
             actual = target.IsOver;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.IsFalse(actual);
+
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+            
+            target.Fire(0, 0); target.Fire(0, 0);
+            target.Fire(0, 1); target.Fire(0, 1);
+            target.Fire(0, 2); target.Fire(0, 2);
+            target.Fire(0, 3); target.Fire(0, 3);
+            target.Fire(0, 4); target.Fire(0, 4);
+
+            target.Fire(1, 0); target.Fire(1, 0);
+            target.Fire(1, 1); target.Fire(1, 1);
+            target.Fire(1, 2); target.Fire(1, 2);
+            target.Fire(1, 3); target.Fire(1, 3);
+
+            target.Fire(2, 0); target.Fire(2, 0);
+            target.Fire(2, 1); target.Fire(2, 1);
+            target.Fire(2, 2); target.Fire(2, 2);
+
+            target.Fire(3, 0); target.Fire(3, 0);
+            target.Fire(3, 1); target.Fire(3, 1);
+            target.Fire(3, 2); target.Fire(3, 2);
+
+            target.Fire(4, 0); target.Fire(4, 0);
+            target.Fire(4, 1); target.Fire(4, 1);
+
+
+            actual = target.IsOver;
+            Assert.IsTrue(actual);
+
         }
 
         /// <summary>
@@ -146,10 +155,33 @@ namespace TestProject1
         [TestMethod()]
         public void TurnTest()
         {
-            Game target = new Game(); // TODO: Initialize to an appropriate value
-            Player actual;
-            actual = target.Turn;
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Game target = new Game();
+            Assert.AreEqual(target.Turn, Player.Human);
+
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 0, 0, Orientation.Horizontal);
+
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 1, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 2, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 3, 0, Orientation.Horizontal);
+            target.Boards[0].Place(target.Boards[0].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+            target.Boards[1].Place(target.Boards[1].ShipsLeftToPlace[0], 4, 0, Orientation.Horizontal);
+
+            target.Fire(0, 0);
+            Assert.AreEqual(target.Turn, Player.Computer);
+            target.Fire(0, 1); 
+            Assert.AreEqual(target.Turn, Player.Human);
+            target.Fire(0, 2);
+            Assert.AreEqual(target.Turn, Player.Computer);
+            target.Fire(0, 3);
+            Assert.AreEqual(target.Turn, Player.Human);
+            target.Fire(0, 4);
+            Assert.AreEqual(target.Turn, Player.Computer);
+
+
         }
     }
 }

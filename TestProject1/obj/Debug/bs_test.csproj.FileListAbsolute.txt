@@ -33,4 +33,14 @@ G:\CIS3309\Battleship2\battleship\TestProject1\bin\Debug\bs_Accessor.pdb
 G:\CIS3309\Battleship2\battleship\TestProject1\obj\Debug\bs_test.csprojResolveAssemblyReference.cache
 G:\CIS3309\Battleship2\battleship\TestProject1\obj\Debug\TestProject1.dll
 G:\CIS3309\Battleship2\battleship\TestProject1\obj\Debug\TestProject1.pdb
+<<<<<<< HEAD
+C:\Users\Brent\Desktop\battleship\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\Brent\Desktop\battleship\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\Brent\Desktop\battleship\TestProject1\bin\Debug\bs.exe
+C:\Users\Brent\Desktop\battleship\TestProject1\bin\Debug\bs.pdb
+C:\Users\Brent\Desktop\battleship\TestProject1\obj\Debug\bs_test.csprojResolveAssemblyReference.cache
+C:\Users\Brent\Desktop\battleship\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\Brent\Desktop\battleship\TestProject1\obj\Debug\TestProject1.pdb
+=======
 G:\CIS3309\battleship\TestProject1\bin\Debug\Battleship.accdb
+>>>>>>> a497247e9b7acf34c0cf8f2750f7b9a4bf41d992
