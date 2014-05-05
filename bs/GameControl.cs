@@ -54,6 +54,7 @@ namespace bs
                 Database.AddStatistics(((Battleship.Battleship)Parent).PlayerName, winner, game.Turns);
                 game.NewGame();
                 Redraw();
+                ((Battleship.Battleship)Parent).PlayerNameEnabled = true;
                 return true;
             }
             return false;
@@ -68,7 +69,6 @@ namespace bs
                 while (!game.Fire(random.Next(game.Rows), random.Next(game.Columns))) ;
                 brdPlayer.Redraw(null);
                 IsOver();
-                ((Battleship.Battleship)Parent).PlayerNameEnabled = true;
             }
 
         }

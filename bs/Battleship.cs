@@ -80,7 +80,7 @@ namespace Battleship
 
         private void Battleship_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = GiveUp();
+            e.Cancel = !GiveUp();
         }
     }
 }

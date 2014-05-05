@@ -95,3 +95,4 @@ G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.frmGameStatistics.resource
 G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.frmHowToPlay.resources
 G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.Properties.Resources.resources
 G:\CIS3309\Battleship5\battleship\bs\obj\x86\Debug\bs.csproj.GenerateResource.Cache
+G:\CIS3309\battleship\bs\obj\x86\Debug\bs.csprojResolveAssemblyReference.cache
