@@ -53,10 +53,10 @@
             this.lstGameStats.FullRowSelect = true;
             this.lstGameStats.GridLines = true;
             this.lstGameStats.HideSelection = false;
-            this.lstGameStats.Location = new System.Drawing.Point(97, 45);
+            this.lstGameStats.Location = new System.Drawing.Point(12, 12);
             this.lstGameStats.MultiSelect = false;
             this.lstGameStats.Name = "lstGameStats";
-            this.lstGameStats.Size = new System.Drawing.Size(446, 274);
+            this.lstGameStats.Size = new System.Drawing.Size(458, 295);
             this.lstGameStats.TabIndex = 14;
             this.lstGameStats.UseCompatibleStateImageBehavior = false;
             this.lstGameStats.View = System.Windows.Forms.View.Details;
@@ -85,10 +85,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 370);
+            this.ClientSize = new System.Drawing.Size(482, 319);
             this.Controls.Add(this.lstGameStats);
             this.Name = "frmGameStatistics";
             this.Text = "Game Statistics";
+            this.Load += new System.EventHandler(this.frmGameStatistics_Load);
             this.ResumeLayout(false);
 
         }

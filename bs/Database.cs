@@ -46,7 +46,7 @@ namespace bs
                     if (!list.ContainsKey(reader.GetString(0)))
                     {
                         Dictionary<string, object> fields = new Dictionary<string, object>();
-                        fields["Turns"] = 100;
+                        fields["Turns"] = "DNA";
                         fields["Wins"] = 0;
                         list[reader.GetString(0)] = fields;
                     }
